@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            position:absolute;
+            opacity: 0;
+
+        }
+
+        #slider{
+            position:relative;
+            display: block;
+            width: 60px;
+            height: 30px;
+            background-color: black;
+            border-radius: 30px;
+        }
+        #slider::before{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            content: '';
+            background-color: blue;
+            top: 5px;
+            left: 5px;
+            border-radius: 30px;
+            transition: .5s;
+            z-index: 2;
+        }
+
+
+        #slider::after{
+            position: absolute;
+            width: 50px;
+            z-index: 1;
+            height: 20px;
+            content: '';
+            background-color: rgb(232, 232, 232);
+            top: 5px;
+            left: 5px;
+            border-radius: 30px;
+            transition: .5s;
+        }
+        input:checked + #slider::before{
+            transform: translateX(30px);
+            background-color: rgb(147, 204, 34);
+        }
+    </style>
+</head>
+<body>
+    <input id="switch" type="checkbox">
+    <label for="switch" id="slider"></label>
+</body>
+</html>
